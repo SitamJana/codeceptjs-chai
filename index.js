@@ -1,4 +1,6 @@
-const chai   = require( 'chai' );
+const chai = require('chai');
+
+const { expect } = chai;
 
 /**
  * This wrapper take methods from default assert library to give access to use it from I object.
@@ -13,9 +15,8 @@ class chaiWrapper extends Helper {
    * @returns {*}
    */
   assertEqual(actual, expected) {
-    return expect( actual ).to.equal( expected );
+    return expect(actual).to.equal(expected);
   }
-
 }
 
 module.exports = chaiWrapper;

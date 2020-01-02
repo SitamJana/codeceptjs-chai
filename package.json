@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "CodeceptJS helper for chai library",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^6.5.1",
-    "eslint-plugin-varspacing": "^1.2.1",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-varspacing": "^1.2.1",
     "eslint-plugin-import": "^2.17.3"
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "chai-json-schema": "^1.5.1",
     "chai-string": "^1.5.0"
   },

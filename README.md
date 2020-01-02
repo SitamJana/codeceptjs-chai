@@ -28,7 +28,7 @@ Asserts that the target is strictly (===) equal to the given value.
 https://www.chaijs.com/api/bdd/#method_equal
 
 ```js
-I.assertNotEqual(1, 1);
+I.assertEqual(1, 1);
 I.assertEqual('foo', 'foo');
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "codeceptjs-chai",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "CodeceptJS helper for chai library",
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:sjana-aj/codeceptjs-chai.git"
+    "url": "git@github.com:SitamJana/codeceptjs-chai.git"
   },
   "keywords": [
     "codeceptJS",

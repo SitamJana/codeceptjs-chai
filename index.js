@@ -104,6 +104,56 @@ class chaiWrapper extends Helper {
   assertHasAProperty(targetData, propertyName) {
     return expect(targetData).to.have.a.property(propertyName);
   }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_a
+   * @param {*} targetData
+   * @param {*} type
+   * @returns {*}
+   */
+  assertToBeA(targetData, type) {
+    return expect(targetData).to.be.a(type);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_a
+   * @param {*} targetData
+   * @param {*} type
+   * @returns {*}
+   */
+  assertToBeAn(targetData, type) {
+    return expect(targetData).to.be.an(type);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_match
+   * @param {*} targetData
+   * @param {*} regex
+   * @returns {*}
+   */
+  assertMatchRegex(targetData, regex) {
+    return expect(targetData).to.match(regex);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_lengthof
+   * @param {*} targetData
+   * @param {*} length
+   * @returns {*}
+   */
+  assertLengthOf(targetData, length) {
+    return expect(targetData).to.have.lengthOf(length);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_empty
+   * @param {*} targetData
+   * @returns {*}
+   */
+  assertEmpty(targetData) {
+    return expect(targetData).to.be.empty;
+  }
+
 }
 
 module.exports = chaiWrapper;

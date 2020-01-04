@@ -62,6 +62,10 @@ https://www.chaijs.com/api/bdd/#method_include
 
 ```js
 I.assertContain('foobar', 'foo');
+I.assertContain([1, 2, 3], 2);
+I.assertContain({a: 1, b: 2, c: 3}, {a: 1, b: 2});
+I.assertContain(new Set([1, 2]), 2);
+I.assertContain(new Map([['a', 1], ['b', 2]]), 2);
 ```
 
 **Parameters**
@@ -78,6 +82,8 @@ Asserts that the target does not contain the given value.
 
 ```js
 I.assertNotContain('foo', 'bar');
+I.assertNotContain([1, 2, 3], 4);
+I.assertNotContain({a: 3, b: 4}, {a: 1, b: 2});
 ```
 
 **Parameters**
@@ -193,3 +199,90 @@ I.assertHasAProperty({b: 2}, 'b');
 -   `targetData` - target json data
 -   `propertyName` - expected property name
 
+## assertToBeA
+
+Asserts that the target’s type is equal to the given string type. Types are case insensitive. See the type-detect project page for info on the type detection algorithm: https://github.com/chaijs/type-detect.
+
+https://www.chaijs.com/api/bdd/#method_a
+
+```js
+I.assertToBeA('foo', 'string');
+I.assertToBeA(null, 'null');
+I.assertToBeA(Promise.resolve(), 'promise');
+I.assertToBeA(new Float32Array, 'float32array');
+I.assertToBeA(Symbol(), 'symbol');
+```
+
+**Parameters**
+
+-   `targetData` - target json data
+-   `type` - expected data type
+
+## assertToBeAn
+
+Asserts that the target’s type is equal to the given string type. Types are case insensitive. See the type-detect project page for info on the type detection algorithm: https://github.com/chaijs/type-detect.
+
+https://www.chaijs.com/api/bdd/#method_a
+
+```js
+I.assertToBeAn([1, 2, 3], 'array');
+I.assertToBeAn({a: 1}, 'object');
+I.assertToBeAn(undefined, 'undefined');
+I.assertToBeAn(new Error, 'error');
+```
+
+**Parameters**
+
+-   `targetData` - target json data
+-   `type` - expected data type
+
+## assertMatchRegex
+
+Asserts that the target matches the given regular expression.
+
+https://www.chaijs.com/api/bdd/#method_match
+
+```js
+I.assertMatchRegex('foobar', /^foo/);
+```
+
+**Parameters**
+
+-   `targetData` - target json data
+-   `regex` - regular expression to match target data
+
+## assertLengthOf
+
+Asserts that the target’s length or size is equal to the given number n.
+
+https://www.chaijs.com/api/bdd/#method_lengthof
+
+```js
+I.assertLengthOf([1, 2, 3], 3);
+I.assertLengthOf('foo', 3);
+I.assertLengthOf(new Set([1, 2, 3]), 3);
+I.assertLengthOf(new Map([['a', 1], ['b', 2], ['c', 3]]), 3);
+```
+
+**Parameters**
+
+-   `targetData` - target json data
+-   `length` - expected target data length
+
+## assertEmpty
+
+When the target is a string or array, .empty asserts that the target’s length property is strictly (===) equal to 0.
+
+https://www.chaijs.com/api/bdd/#method_empty
+
+```js
+I.assertEmpty('');
+I.assertEmpty([]);
+I.assertEmpty({});
+I.assertEmpty(new Set());
+I.assertEmpty(new Map());
+```
+
+**Parameters**
+
+-   `targetData` - target json data

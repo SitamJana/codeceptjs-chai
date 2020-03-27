@@ -54,6 +54,40 @@ I.assertNotEqual('foobar', 'foo');
 -   `actualValue` - actual value
 -   `expectedValue` - expected value
 
+## assertDeepEqual
+
+Asserts that the target is an object whose properties are strictly equal (===) as the given value's.
+
+- https://www.chaijs.com/api/bdd/#method_deep
+- https://www.chaijs.com/api/bdd/#method_equal
+
+```js
+I.assertDeepEqual({a: 1}, {a: 1});
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+
+## assertNotDeepEqual
+
+Asserts that the target is not an object whose properties are strictly equal (===) as the given value's.
+
+- https://www.chaijs.com/api/bdd/#method_not
+- https://www.chaijs.com/api/bdd/#method_deep
+- https://www.chaijs.com/api/bdd/#method_equal
+
+```js
+I.assertNotDeepEqual({a: 1}, {a: 2});
+I.assertNotDeepEqual({a: 1}, {b: 1, c: 2});
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+
 ## assertContain
 
 Asserts that the target contains the given value.

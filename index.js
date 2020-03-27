@@ -34,6 +34,29 @@ class chaiWrapper extends Helper {
   }
 
   /**
+   * https://www.chaijs.com/api/bdd/#method_deep
+   * https://www.chaijs.com/api/bdd/#method_equal
+   * @param {*} actualValue
+   * @param {*} expectedValue
+   * @returns {*}
+   */
+  assertDeepEqual(actualValue, expectedValue) {
+    return expect(actualValue).to.deep.equal(expectedValue);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_not
+   * https://www.chaijs.com/api/bdd/#method_deep
+   * https://www.chaijs.com/api/bdd/#method_equal
+   * @param {*} actualValue
+   * @param {*} expectedValue
+   * @returns {*}
+   */
+  assertNotDeepEqual(actualValue, expectedValue) {
+    return expect(actualValue).to.not.deep.equal(expectedValue);
+  }
+
+  /**
    * https://www.chaijs.com/api/bdd/#method_include
    * @param {*} actualValue
    * @param {*} expectedValueToContain

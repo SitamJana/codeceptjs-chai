@@ -286,3 +286,117 @@ I.assertEmpty(new Map());
 **Parameters**
 
 -   `targetData` - target json data
+
+## assertTrue
+
+Asserts that the target is strictly (===) equal to true.
+
+https://www.chaijs.com/api/bdd/#method_true
+
+```js
+I.assertTrue(true);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+
+## assertFalse
+
+Asserts that the target is strictly (===) equal to false.
+
+https://www.chaijs.com/api/bdd/#method_false
+
+```js
+I.assertFalse(false);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+
+## assertAbove
+
+Asserts that the target is a number or a date greater than the given number or date n respectively. However, it’s often best to assert that the target is equal to its expected value.
+
+https://www.chaijs.com/api/bdd/#method_above
+
+```js
+I.assertAbove(2, 1);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+-   `aboveThan` - number | Date
+
+## assertBelow
+
+Asserts that the target is a number or a date less than the given number or date n respectively. However, it’s often best to assert that the target is equal to its expected value.
+
+https://www.chaijs.com/api/bdd/#method_below
+
+```js
+I.assertBelow(1, 2);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+-   `belowThan` - number | Date
+
+## assertLengthOf
+
+Asserts that the target’s length or size is equal to the given number n.
+
+https://www.chaijs.com/api/bdd/#method_lengthof
+
+```js
+I.assertLengthOf([1, 2, 3], 3);
+I.assertLengthOf('foo', 3);
+I.assertLengthOf(new Set([1, 2, 3]), 3);
+I.assertLengthOf(new Map([['a', 1], ['b', 2], ['c', 3]]), 3);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+-   `expectedLength` - expected length
+
+## assertLengthAboveThan
+
+Asserts that the target’s length or size is above than the given number n.
+
+https://www.chaijs.com/api/bdd/#method_lengthof
+https://www.chaijs.com/api/bdd/#method_above
+
+```js
+I.assertLengthAboveThan([1, 2, 3], 2);
+I.assertLengthAboveThan('foo', 2);
+I.assertLengthAboveThan(new Set([1, 2, 3]), 2);
+I.assertLengthAboveThan(new Map([['a', 1], ['b', 2], ['c', 3]]), 2);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+-   `lengthAboveThan` - length above than
+
+## assertLengthBelowThan
+
+Asserts that the target’s length or size is below than the given number n.
+
+https://www.chaijs.com/api/bdd/#method_lengthof
+https://www.chaijs.com/api/bdd/#method_below
+
+```js
+I.assertLengthBelowThan([1, 2, 3], 4);
+I.assertLengthBelowThan('foo', 4);
+I.assertLengthBelowThan(new Set([1, 2, 3]), 4);
+I.assertLengthBelowThan(new Map([['a', 1], ['b', 2], ['c', 3]]), 4);
+```
+
+**Parameters**
+
+-   `targetData` - target data
+-   `lengthBelowThan` - length below than

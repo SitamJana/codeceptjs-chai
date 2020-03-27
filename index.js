@@ -154,6 +154,76 @@ class chaiWrapper extends Helper {
     return expect(targetData).to.be.empty;
   }
 
+  /**
+   * https://www.chaijs.com/api/bdd/#method_true
+   * @param {*} targetData
+   * @returns {*} 
+   */
+  assertTrue(targetData) {
+    return expect(targetData).to.be.true;
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_false
+   * @param {*} targetData
+   * @returns {*} 
+   */
+  assertFalse(targetData) {
+    return expect(targetData).to.be.false;
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_above
+   * @param {*} targetData
+   * @param {*} aboveThan number | Date
+   * @returns {*} 
+   */
+  assertAbove(targetData, aboveThan) {
+    return expect(targetData).to.be.above(aboveThan);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_below
+   * @param {*} targetData
+   * @param {*} belowThan number | Date
+   * @returns {*} 
+   */
+  assertBelow(targetData, belowThan) {
+    return expect(targetData).to.be.below(belowThan);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_lengthof
+   * @param {*} targetData
+   * @param {*} expectedLength
+   * @returns {*}
+   */
+  assertLengthOf(targetData, expectedLength) {
+    return expect(targetData).to.have.lengthOf(expectedLength);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_lengthof
+   * https://www.chaijs.com/api/bdd/#method_above
+   * @param {*} targetData
+   * @param {*} lengthAboveThan
+   * @returns {*}
+   */
+  assertLengthAboveThan(targetData, lengthAboveThan) {
+    return expect(targetData).to.have.lengthOf.above(lengthAboveThan);
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_lengthof
+   * https://www.chaijs.com/api/bdd/#method_below
+   * @param {*} targetData
+   * @param {*} lengthBelowThan
+   * @returns {*}
+   */
+  assertLengthBelowThan(targetData, lengthBelowThan) {
+    return expect(targetData).to.have.lengthOf.below(lengthBelowThan);
+  }
+
 }
 
 module.exports = chaiWrapper;

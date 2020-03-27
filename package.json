@@ -1,6 +1,6 @@
 {
   "name": "codeceptjs-chai",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CodeceptJS helper for chai library",
   "devDependencies": {
     "eslint": "^5.16.0",

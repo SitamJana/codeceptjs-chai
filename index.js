@@ -1,25 +1,28 @@
-const chai = require('chai');
+/* eslint-disable global-require */
+const chai = require( 'chai' );
 
 const { expect } = chai;
 
 // Use chai custom assetion library
-chai.use(require('chai-json-schema'));
-chai.use(require('chai-string'));
+chai.use( require( 'chai-string' ) );
 
 /**
  * This wrapper take methods from default assert library to give access to use it from I object.
  * This wrapper allow us to print asserts as steps in output. Also we can expand this lib with different methods and
  * other assertion libraries.
  */
-class chaiWrapper extends Helper {
+class chaiWrapper extends Helper{
+
   /**
    * https://www.chaijs.com/api/bdd/#method_equal
    * @param {*} actualValue
    * @param {*} expectedValue
    * @returns {*}
    */
-  assertEqual(actualValue, expectedValue) {
-    return expect(actualValue).to.equal(expectedValue);
+  assertEqual( actualValue, expectedValue ){
+
+    return expect( actualValue ).to.equal( expectedValue );
+
   }
 
   /**
@@ -29,8 +32,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValue
    * @returns {*}
    */
-  assertNotEqual(actualValue, expectedValue) {
-    return expect(actualValue).not.to.equal(expectedValue);
+  assertNotEqual( actualValue, expectedValue ){
+
+    return expect( actualValue ).not.to.equal( expectedValue );
+
   }
 
   /**
@@ -40,8 +45,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValue
    * @returns {*}
    */
-  assertDeepEqual(actualValue, expectedValue) {
-    return expect(actualValue).to.deep.equal(expectedValue);
+  assertDeepEqual( actualValue, expectedValue ){
+
+    return expect( actualValue ).to.deep.equal( expectedValue );
+
   }
 
   /**
@@ -52,8 +59,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValue
    * @returns {*}
    */
-  assertNotDeepEqual(actualValue, expectedValue) {
-    return expect(actualValue).to.not.deep.equal(expectedValue);
+  assertNotDeepEqual( actualValue, expectedValue ){
+
+    return expect( actualValue ).to.not.deep.equal( expectedValue );
+
   }
 
   /**
@@ -62,8 +71,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValueToContain
    * @returns {*}
    */
-  assertContain(actualValue, expectedValueToContain) {
-    return expect(actualValue).to.contain(expectedValueToContain);
+  assertContain( actualValue, expectedValueToContain ){
+
+    return expect( actualValue ).to.contain( expectedValueToContain );
+
   }
 
   /**
@@ -73,8 +84,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValueToNotContain
    * @returns {*}
    */
-  assertNotContain(actualValue, expectedValueToNotContain) {
-    return expect(actualValue).not.to.contain(expectedValueToNotContain);
+  assertNotContain( actualValue, expectedValueToNotContain ){
+
+    return expect( actualValue ).not.to.contain( expectedValueToNotContain );
+
   }
 
   /**
@@ -83,8 +96,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValueToStartWith
    * @returns {*}
    */
-  assertStartsWith(actualValue, expectedValueToStartWith) {
-    return expect(actualValue).to.startsWith(expectedValueToStartWith);
+  assertStartsWith( actualValue, expectedValueToStartWith ){
+
+    return expect( actualValue ).to.startsWith( expectedValueToStartWith );
+
   }
 
   /**
@@ -94,8 +109,10 @@ class chaiWrapper extends Helper {
    * @param {*} expectedValueToNotStartWith
    * @returns {*}
    */
-  assertNotStartsWith(actualValue, expectedValueToNotStartWith) {
-    return expect(actualValue).not.to.startsWith(expectedValueToNotStartWith);
+  assertNotStartsWith( actualValue, expectedValueToNotStartWith ){
+
+    return expect( actualValue ).not.to.startsWith( expectedValueToNotStartWith );
+
   }
 
   /**
@@ -104,8 +121,24 @@ class chaiWrapper extends Helper {
    * @param {*} jsonSchema
    * @returns {*}
    */
-  assertJsonSchema(targetData, jsonSchema) {
-    return expect(targetData).to.be.jsonSchema(jsonSchema);
+  assertJsonSchema( targetData, jsonSchema ){
+
+    chai.use( require( 'chai-json-schema' ) );
+    return expect( targetData ).to.be.jsonSchema( jsonSchema );
+
+  }
+
+  /**
+   * https://www.chaijs.com/plugins/chai-json-schema-ajv/
+   * @param {*} targetData
+   * @param {*} jsonSchema
+   * @returns {*}
+   */
+  assertJsonSchemaUsingAJV( targetData, jsonSchema ){
+
+    chai.use( require( 'chai-json-schema-ajv' ) );
+    return expect( targetData ).to.be.jsonSchema( jsonSchema );
+
   }
 
   /**
@@ -114,8 +147,10 @@ class chaiWrapper extends Helper {
    * @param {*} propertyName
    * @returns {*}
    */
-  assertHasProperty(targetData, propertyName) {
-    return expect(targetData).to.have.property(propertyName);
+  assertHasProperty( targetData, propertyName ){
+
+    return expect( targetData ).to.have.property( propertyName );
+
   }
 
   /**
@@ -124,8 +159,10 @@ class chaiWrapper extends Helper {
    * @param {*} propertyName
    * @returns {*}
    */
-  assertHasAProperty(targetData, propertyName) {
-    return expect(targetData).to.have.a.property(propertyName);
+  assertHasAProperty( targetData, propertyName ){
+
+    return expect( targetData ).to.have.a.property( propertyName );
+
   }
 
   /**
@@ -134,8 +171,10 @@ class chaiWrapper extends Helper {
    * @param {*} type
    * @returns {*}
    */
-  assertToBeA(targetData, type) {
-    return expect(targetData).to.be.a(type);
+  assertToBeA( targetData, type ){
+
+    return expect( targetData ).to.be.a( type );
+
   }
 
   /**
@@ -144,8 +183,10 @@ class chaiWrapper extends Helper {
    * @param {*} type
    * @returns {*}
    */
-  assertToBeAn(targetData, type) {
-    return expect(targetData).to.be.an(type);
+  assertToBeAn( targetData, type ){
+
+    return expect( targetData ).to.be.an( type );
+
   }
 
   /**
@@ -154,8 +195,10 @@ class chaiWrapper extends Helper {
    * @param {*} regex
    * @returns {*}
    */
-  assertMatchRegex(targetData, regex) {
-    return expect(targetData).to.match(regex);
+  assertMatchRegex( targetData, regex ){
+
+    return expect( targetData ).to.match( regex );
+
   }
 
   /**
@@ -164,8 +207,10 @@ class chaiWrapper extends Helper {
    * @param {*} length
    * @returns {*}
    */
-  assertLengthOf(targetData, length) {
-    return expect(targetData).to.have.lengthOf(length);
+  assertLengthOf( targetData, length ){
+
+    return expect( targetData ).to.have.lengthOf( length );
+
   }
 
   /**
@@ -173,56 +218,56 @@ class chaiWrapper extends Helper {
    * @param {*} targetData
    * @returns {*}
    */
-  assertEmpty(targetData) {
-    return expect(targetData).to.be.empty;
+  assertEmpty( targetData ){
+
+    return expect( targetData ).to.be.empty;
+
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_true
    * @param {*} targetData
-   * @returns {*} 
+   * @returns {*}
    */
-  assertTrue(targetData) {
-    return expect(targetData).to.be.true;
+  assertTrue( targetData ){
+
+    return expect( targetData ).to.be.true;
+
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_false
    * @param {*} targetData
-   * @returns {*} 
+   * @returns {*}
    */
-  assertFalse(targetData) {
-    return expect(targetData).to.be.false;
+  assertFalse( targetData ){
+
+    return expect( targetData ).to.be.false;
+
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_above
    * @param {*} targetData
    * @param {*} aboveThan number | Date
-   * @returns {*} 
+   * @returns {*}
    */
-  assertAbove(targetData, aboveThan) {
-    return expect(targetData).to.be.above(aboveThan);
+  assertAbove( targetData, aboveThan ){
+
+    return expect( targetData ).to.be.above( aboveThan );
+
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_below
    * @param {*} targetData
    * @param {*} belowThan number | Date
-   * @returns {*} 
-   */
-  assertBelow(targetData, belowThan) {
-    return expect(targetData).to.be.below(belowThan);
-  }
-
-  /**
-   * https://www.chaijs.com/api/bdd/#method_lengthof
-   * @param {*} targetData
-   * @param {*} expectedLength
    * @returns {*}
    */
-  assertLengthOf(targetData, expectedLength) {
-    return expect(targetData).to.have.lengthOf(expectedLength);
+  assertBelow( targetData, belowThan ){
+
+    return expect( targetData ).to.be.below( belowThan );
+
   }
 
   /**
@@ -232,8 +277,10 @@ class chaiWrapper extends Helper {
    * @param {*} lengthAboveThan
    * @returns {*}
    */
-  assertLengthAboveThan(targetData, lengthAboveThan) {
-    return expect(targetData).to.have.lengthOf.above(lengthAboveThan);
+  assertLengthAboveThan( targetData, lengthAboveThan ){
+
+    return expect( targetData ).to.have.lengthOf.above( lengthAboveThan );
+
   }
 
   /**
@@ -243,8 +290,10 @@ class chaiWrapper extends Helper {
    * @param {*} lengthBelowThan
    * @returns {*}
    */
-  assertLengthBelowThan(targetData, lengthBelowThan) {
-    return expect(targetData).to.have.lengthOf.below(lengthBelowThan);
+  assertLengthBelowThan( targetData, lengthBelowThan ){
+
+    return expect( targetData ).to.have.lengthOf.below( lengthBelowThan );
+
   }
 
 }

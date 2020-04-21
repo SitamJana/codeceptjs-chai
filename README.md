@@ -158,7 +158,7 @@ I.assertNotStartsWith('foobar', 'bar');
 
 ## assertJsonSchema
 
-Validate that the given javascript value conforms to the specified JSON Schema. Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.
+Validate that the given json data conforms to the specified JSON Schema. Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.
 
 https://www.npmjs.com/package/chai-json-schema#jsonschemavalue-schema
 
@@ -196,6 +196,54 @@ const fruitSchema = {
   }
 };
 I.assertJsonSchema(goodApple, fruitSchema);
+```
+
+**Parameters**
+
+-   `targetData` - target json data
+-   `jsonSchema` - json schema
+
+## assertJsonSchemaUsingAJV
+
+Validate that the given json data conforms to the specified JSON Schema using chai-json-schema-ajv. Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.
+
+https://www.chaijs.com/plugins/chai-json-schema-ajv/
+https://www.npmjs.com/package/chai-json-schema-ajv
+
+```js
+const goodApple = {
+  skin: 'thin',
+  colors: ['red', 'green', 'yellow'],
+  taste: 10
+};
+const badApple = {
+  colors: ['brown'],
+  taste: 0,
+  worms: 2
+};
+const fruitSchema = {
+  title: 'fresh fruit schema v1',
+  type: 'object',
+  required: ['skin', 'colors', 'taste'],
+  properties: {
+    colors: {
+      type: 'array',
+      minItems: 1,
+      uniqueItems: true,
+      items: {
+        type: 'string'
+      }
+    },
+    skin: {
+      type: 'string'
+    },
+    taste: {
+      type: 'number',
+      minimum: 5
+    }
+  }
+};
+I.assertJsonSchemaUsingAJV(goodApple, fruitSchema);
 ```
 
 **Parameters**

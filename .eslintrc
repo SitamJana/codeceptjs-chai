@@ -1,44 +1,294 @@
 {
-  "extends": "airbnb-base",
-  "globals": {
-    "describe": false,
-    "it": false,
-    "before": false,
-    "Helper": false,
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
   },
+  "globals": {
+    "Given": true,
+    "When": true,
+    "Then": true,
+    "expect": true
+  },
+  "plugins": [
+    "varspacing",
+    "codeceptjs"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 9
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:varspacing/recommended",
+    "plugin:codeceptjs/recommended"
+  ],
   "rules": {
-    "no-console": [
+    "indent": [
+      "error",
+      2,
+      {
+        "VariableDeclarator": {
+          "var": 2,
+          "let": 2,
+          "const": 3
+        },
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-constant-condition": [
+      "error",
+      {
+        "checkLoops": false
+      }
+    ],
+    "no-fallthrough": [
+      0
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "eol-last": "error",
+    "id-blacklist": [
+      "error",
+      "cb",
+      "callback"
+    ],
+    "key-spacing": [
+      "error",
+      {
+        "align": "value"
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignorePattern": "^.*= require\\( '.*' \\);?"
+      }
+    ],
+    "max-nested-callbacks": [
+      "error",
+      4
+    ],
+    "max-params": [
+      "error",
+      5
+    ],
+    "new-cap": [
+      "error",
+      {
+        "capIsNew": false
+      }
+    ],
+    "new-parens": "error",
+    "no-lonely-if": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2
+      }
+    ],
+    "no-negated-condition": "error",
+    "no-new-object": "error",
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement"
+    ],
+    "no-spaced-func": "error",
+    "no-underscore-dangle": [
       "error",
       {
         "allow": [
-          "info",
-          "warn",
-          "error"
+          "_embedded",
+          "_links"
         ]
       }
     ],
-    "class-methods-use-this": "off",
-    "no-underscore-dangle": "off",
-    "max-len": [
+    "no-unneeded-ternary": "error",
+    "no-whitespace-before-property": "error",
+    "object-curly-spacing": [
       "error",
-      150,
-      2,
+      "always"
+    ],
+    "object-property-newline": [
+      "error",
       {
-        "ignoreUrls": true,
-        "ignoreComments": false,
-        "ignoreRegExpLiterals": true,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true
+        "allowMultiplePropertiesPerLine": true
       }
     ],
-    "no-shadow": "off",
-    "no-param-reassign": "off",
-    "no-nested-ternary": "off",
-    "prefer-const": [
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "one-var-declaration-per-line": [
+      "error",
+      "always"
+    ],
+    "operator-assignment": [
+      "error",
+      "always"
+    ],
+    "operator-linebreak": [
+      "error",
+      "before"
+    ],
+    "padded-blocks": [
+      "error",
+      "always"
+    ],
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+    "semi-spacing": "error",
+    "space-before-blocks": [
+      "error",
+      "never"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "space-in-parens": [
+      "error",
+      "always",
+      {
+        "exceptions": [
+          "empty"
+        ]
+      }
+    ],
+    "space-infix-ops": [
       "error",
       {
-        "destructuring": "any",
-        "ignoreReadBeforeAssign": false
+        "int32Hint": false
+      }
+    ],
+    "space-unary-ops": "error",
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "markers": [
+          "/",
+          "!:"
+        ]
+      }
+    ],
+    "array-callback-return": "error",
+    "curly": [
+      "error",
+      "multi-line",
+      "consistent"
+    ],
+    "no-console": "error",
+    "no-debugger": "error",
+    "callback-return": "error",
+    "handle-callback-err": "error",
+    "no-mixed-requires": "error",
+    "no-new-require": "error",
+    "no-path-concat": "error",
+    "no-process-exit": "error",
+    "no-sync": "error",
+    "func-names": "error",
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "arrow-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": false
+      }
+    ],
+    "no-class-assign": "error",
+    "no-confusing-arrow": [
+      "error",
+      {
+        "allowParens": true
+      }
+    ],
+    "no-useless-computed-key": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
+    "no-var": "error",
+    "object-shorthand": [
+      "error",
+      "always"
+    ],
+    "prefer-arrow-callback": [
+      "error",
+      {
+        "allowUnboundThis": false
+      }
+    ],
+    "prefer-const": "error",
+    "prefer-reflect": [
+      "error",
+      {
+        "exceptions": [
+          "apply",
+          "call",
+          "delete"
+        ]
+      }
+    ],
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
+    "require-yield": "error",
+    "template-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "yield-star-spacing": "error",
+    "no-inner-declarations": "off",
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let"
+        ],
+        "next": [
+          "if",
+          "const",
+          "let"
+        ]
       }
     ]
   }

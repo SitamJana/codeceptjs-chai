@@ -205,10 +205,10 @@ I.assertJsonSchema(goodApple, fruitSchema);
 
 ## assertJsonSchemaUsingAJV
 
-Validate that the given json data conforms to the specified JSON Schema using chai-json-schema-ajv. Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.
+Validate that the given json data conforms to the specified JSON Schema using [chai-json-schema-ajv](https://www.npmjs.com/package/chai-json-schema-ajv). Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.
 
-https://www.chaijs.com/plugins/chai-json-schema-ajv/
-https://www.npmjs.com/package/chai-json-schema-ajv
+- https://www.chaijs.com/plugins/chai-json-schema-ajv/
+- https://www.npmjs.com/package/chai-json-schema-ajv
 
 ```js
 const goodApple = {

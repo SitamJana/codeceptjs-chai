@@ -17,11 +17,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_equal
    * @param {*} actualValue
    * @param {*} expectedValue
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertEqual( actualValue, expectedValue ){
+  assertEqual( actualValue, expectedValue, customErrorMsg = '' ){
 
-    return expect( actualValue ).to.equal( expectedValue );
+    return expect( actualValue, customErrorMsg ).to.equal( expectedValue );
 
   }
 
@@ -30,11 +31,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_equal
    * @param {*} actualValue
    * @param {*} expectedValue
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertNotEqual( actualValue, expectedValue ){
+  assertNotEqual( actualValue, expectedValue, customErrorMsg = '' ){
 
-    return expect( actualValue ).not.to.equal( expectedValue );
+    return expect( actualValue, customErrorMsg ).not.to.equal( expectedValue );
 
   }
 
@@ -43,11 +45,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_equal
    * @param {*} actualValue
    * @param {*} expectedValue
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertDeepEqual( actualValue, expectedValue ){
+  assertDeepEqual( actualValue, expectedValue, customErrorMsg = '' ){
 
-    return expect( actualValue ).to.deep.equal( expectedValue );
+    return expect( actualValue, customErrorMsg ).to.deep.equal( expectedValue );
 
   }
 
@@ -57,11 +60,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_equal
    * @param {*} actualValue
    * @param {*} expectedValue
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertNotDeepEqual( actualValue, expectedValue ){
+  assertNotDeepEqual( actualValue, expectedValue, customErrorMsg = '' ){
 
-    return expect( actualValue ).to.not.deep.equal( expectedValue );
+    return expect( actualValue, customErrorMsg ).to.not.deep.equal( expectedValue );
 
   }
 
@@ -69,11 +73,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_include
    * @param {*} actualValue
    * @param {*} expectedValueToContain
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertContain( actualValue, expectedValueToContain ){
+  assertContain( actualValue, expectedValueToContain, customErrorMsg = '' ){
 
-    return expect( actualValue ).to.contain( expectedValueToContain );
+    return expect( actualValue, customErrorMsg ).to.contain( expectedValueToContain );
 
   }
 
@@ -82,11 +87,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_include
    * @param {*} actualValue
    * @param {*} expectedValueToNotContain
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertNotContain( actualValue, expectedValueToNotContain ){
+  assertNotContain( actualValue, expectedValueToNotContain, customErrorMsg = '' ){
 
-    return expect( actualValue ).not.to.contain( expectedValueToNotContain );
+    return expect( actualValue, customErrorMsg ).not.to.contain( expectedValueToNotContain );
 
   }
 
@@ -94,11 +100,12 @@ class chaiWrapper extends Helper{
    * https://www.npmjs.com/package/chai-string#startswithstartwith
    * @param {*} actualValue
    * @param {*} expectedValueToStartWith
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertStartsWith( actualValue, expectedValueToStartWith ){
+  assertStartsWith( actualValue, expectedValueToStartWith, customErrorMsg = '' ){
 
-    return expect( actualValue ).to.startsWith( expectedValueToStartWith );
+    return expect( actualValue, customErrorMsg ).to.startsWith( expectedValueToStartWith );
 
   }
 
@@ -107,11 +114,12 @@ class chaiWrapper extends Helper{
    * https://www.npmjs.com/package/chai-string#startswithstartwith
    * @param {*} actualValue
    * @param {*} expectedValueToNotStartWith
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertNotStartsWith( actualValue, expectedValueToNotStartWith ){
+  assertNotStartsWith( actualValue, expectedValueToNotStartWith, customErrorMsg = '' ){
 
-    return expect( actualValue ).not.to.startsWith( expectedValueToNotStartWith );
+    return expect( actualValue, customErrorMsg ).not.to.startsWith( expectedValueToNotStartWith );
 
   }
 
@@ -119,12 +127,13 @@ class chaiWrapper extends Helper{
    * https://www.npmjs.com/package/chai-json-schema#jsonschemavalue-schema
    * @param {*} targetData
    * @param {*} jsonSchema
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertJsonSchema( targetData, jsonSchema ){
+  assertJsonSchema( targetData, jsonSchema, customErrorMsg = '' ){
 
     chai.use( require( 'chai-json-schema' ) );
-    return expect( targetData ).to.be.jsonSchema( jsonSchema );
+    return expect( targetData, customErrorMsg ).to.be.jsonSchema( jsonSchema );
 
   }
 
@@ -132,12 +141,13 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/plugins/chai-json-schema-ajv/
    * @param {*} targetData
    * @param {*} jsonSchema
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertJsonSchemaUsingAJV( targetData, jsonSchema ){
+  assertJsonSchemaUsingAJV( targetData, jsonSchema, customErrorMsg = '' ){
 
     chai.use( require( 'chai-json-schema-ajv' ) );
-    return expect( targetData ).to.be.jsonSchema( jsonSchema );
+    return expect( targetData, customErrorMsg ).to.be.jsonSchema( jsonSchema );
 
   }
 
@@ -145,11 +155,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_property
    * @param {*} targetData
    * @param {*} propertyName
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertHasProperty( targetData, propertyName ){
+  assertHasProperty( targetData, propertyName, customErrorMsg = '' ){
 
-    return expect( targetData ).to.have.property( propertyName );
+    return expect( targetData, customErrorMsg ).to.have.property( propertyName );
 
   }
 
@@ -157,11 +168,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_a
    * @param {*} targetData
    * @param {*} propertyName
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertHasAProperty( targetData, propertyName ){
+  assertHasAProperty( targetData, propertyName, customErrorMsg = '' ){
 
-    return expect( targetData ).to.have.a.property( propertyName );
+    return expect( targetData, customErrorMsg ).to.have.a.property( propertyName );
 
   }
 
@@ -169,11 +181,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_a
    * @param {*} targetData
    * @param {*} type
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertToBeA( targetData, type ){
+  assertToBeA( targetData, type, customErrorMsg = '' ){
 
-    return expect( targetData ).to.be.a( type );
+    return expect( targetData, customErrorMsg ).to.be.a( type );
 
   }
 
@@ -181,11 +194,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_a
    * @param {*} targetData
    * @param {*} type
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertToBeAn( targetData, type ){
+  assertToBeAn( targetData, type, customErrorMsg = '' ){
 
-    return expect( targetData ).to.be.an( type );
+    return expect( targetData, customErrorMsg ).to.be.an( type );
 
   }
 
@@ -193,11 +207,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_match
    * @param {*} targetData
    * @param {*} regex
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertMatchRegex( targetData, regex ){
+  assertMatchRegex( targetData, regex, customErrorMsg = '' ){
 
-    return expect( targetData ).to.match( regex );
+    return expect( targetData, customErrorMsg ).to.match( regex );
 
   }
 
@@ -205,44 +220,60 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_lengthof
    * @param {*} targetData
    * @param {*} length
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertLengthOf( targetData, length ){
+  assertLengthOf( targetData, length, customErrorMsg = '' ){
 
-    return expect( targetData ).to.have.lengthOf( length );
+    return expect( targetData, customErrorMsg ).to.have.lengthOf( length );
 
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_empty
    * @param {*} targetData
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertEmpty( targetData ){
+  assertEmpty( targetData, customErrorMsg = ''  ){
 
-    return expect( targetData ).to.be.empty;
+    return expect( targetData, customErrorMsg ).to.be.empty;
+
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_null
+   * @param {*} targetData
+   * @param {*} customErrorMsg
+   * @returns {*}
+   */
+  assertNull( targetData, customErrorMsg = ''  ){
+
+    return expect( targetData, customErrorMsg ).to.be.null;
 
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_true
    * @param {*} targetData
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertTrue( targetData ){
+  assertTrue( targetData, customErrorMsg = '' ){
 
-    return expect( targetData ).to.be.true;
+    return expect( targetData, customErrorMsg ).to.be.true;
 
   }
 
   /**
    * https://www.chaijs.com/api/bdd/#method_false
    * @param {*} targetData
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertFalse( targetData ){
+  assertFalse( targetData, customErrorMsg = '' ){
 
-    return expect( targetData ).to.be.false;
+    return expect( targetData, customErrorMsg ).to.be.false;
 
   }
 
@@ -250,11 +281,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_above
    * @param {*} targetData
    * @param {*} aboveThan number | Date
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertAbove( targetData, aboveThan ){
+  assertAbove( targetData, aboveThan, customErrorMsg = '' ){
 
-    return expect( targetData ).to.be.above( aboveThan );
+    return expect( targetData, customErrorMsg ).to.be.above( aboveThan );
 
   }
 
@@ -262,11 +294,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_below
    * @param {*} targetData
    * @param {*} belowThan number | Date
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertBelow( targetData, belowThan ){
+  assertBelow( targetData, belowThan, customErrorMsg = '' ){
 
-    return expect( targetData ).to.be.below( belowThan );
+    return expect( targetData, customErrorMsg ).to.be.below( belowThan );
 
   }
 
@@ -275,11 +308,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_above
    * @param {*} targetData
    * @param {*} lengthAboveThan
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertLengthAboveThan( targetData, lengthAboveThan ){
+  assertLengthAboveThan( targetData, lengthAboveThan, customErrorMsg = '' ){
 
-    return expect( targetData ).to.have.lengthOf.above( lengthAboveThan );
+    return expect( targetData, customErrorMsg ).to.have.lengthOf.above( lengthAboveThan );
 
   }
 
@@ -288,11 +322,12 @@ class chaiWrapper extends Helper{
    * https://www.chaijs.com/api/bdd/#method_below
    * @param {*} targetData
    * @param {*} lengthBelowThan
+   * @param {*} customErrorMsg
    * @returns {*}
    */
-  assertLengthBelowThan( targetData, lengthBelowThan ){
+  assertLengthBelowThan( targetData, lengthBelowThan, customErrorMsg = '' ){
 
-    return expect( targetData ).to.have.lengthOf.below( lengthBelowThan );
+    return expect( targetData, customErrorMsg ).to.have.lengthOf.below( lengthBelowThan );
 
   }
 

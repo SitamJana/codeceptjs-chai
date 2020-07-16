@@ -242,18 +242,6 @@ class chaiWrapper extends Helper{
   }
 
   /**
-   * https://www.chaijs.com/api/bdd/#method_null
-   * @param {*} targetData
-   * @param {*} customErrorMsg
-   * @returns {*}
-   */
-  assertNull( targetData, customErrorMsg = ''  ){
-
-    return expect( targetData, customErrorMsg ).to.be.null;
-
-  }
-
-  /**
    * https://www.chaijs.com/api/bdd/#method_true
    * @param {*} targetData
    * @param {*} customErrorMsg

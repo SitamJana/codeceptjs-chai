@@ -369,20 +369,6 @@ I.assertEmpty(new Map());
 
 -   `targetData` - target json data
 
-## assertNull
-
-Asserts that the target is strictly (===) equal to null.
-
-https://www.chaijs.com/api/bdd/#method_null
-
-```js
-I.assertNull(null);
-```
-
-**Parameters**
-
--   `targetData` - target data
-
 ## assertTrue
 
 Asserts that the target is strictly (===) equal to true.

@@ -1,5 +1,7 @@
 # codeceptjs-chai
 
+[![npm package](https://nodei.co/npm/codeceptjs-chai.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/codeceptjs-chai)
+
 codeceptjs-chai is [CodeceptJS](https://codecept.io/) helper which wraps [chai](https://www.chaijs.com/) library to complete chai assertion steps with CodeceptJS logging.
 This wrapper allow us to print asserts as steps in output. Also we can expand this lib with different methods and other assertion libraries.
 

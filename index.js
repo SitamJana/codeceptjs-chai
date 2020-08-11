@@ -149,7 +149,7 @@ class chaiWrapper extends Helper{
     targetData,
     jsonSchema,
     customErrorMsg = '',
-    ajvOptions = { allErrors: true, jsonPointers: true } ){
+    ajvOptions = { allErrors: true } ){
 
     chai.use(
       require( 'chai-json-schema-ajv' ).create( ajvOptions )

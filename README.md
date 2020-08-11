@@ -32,12 +32,14 @@ https://www.chaijs.com/api/bdd/#method_equal
 ```js
 I.assertEqual(1, 1);
 I.assertEqual('foo', 'foo');
+I.assertEqual('foo', 'foo', 'Both the values are not equal');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
 
 ## assertNotEqual
 
@@ -49,12 +51,14 @@ Asserts that the target is not equal to the given value.
 ```js
 I.assertNotEqual(2, 1);
 I.assertNotEqual('foobar', 'foo');
+I.assertNotEqual('foobar', 'foo', 'Both the values are equal');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
 
 ## assertDeepEqual
 
@@ -71,6 +75,7 @@ I.assertDeepEqual({a: 1}, {a: 1});
 
 -   `actualValue` - actual value
 -   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
 
 ## assertNotDeepEqual
 
@@ -83,12 +88,14 @@ Asserts that the target is not an object whose properties are strictly equal (==
 ```js
 I.assertNotDeepEqual({a: 1}, {a: 2});
 I.assertNotDeepEqual({a: 1}, {b: 1, c: 2});
+I.assertNotDeepEqual({a: 1}, {b: 1, c: 2}, 'Both the values are deeply equal');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
 
 ## assertContain
 
@@ -102,12 +109,14 @@ I.assertContain([1, 2, 3], 2);
 I.assertContain({a: 1, b: 2, c: 3}, {a: 1, b: 2});
 I.assertContain(new Set([1, 2]), 2);
 I.assertContain(new Map([['a', 1], ['b', 2]]), 2);
+I.assertContain('foobar', 'foo', 'Target value does not contain given value');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValueToContain` - expected value to contain
+-   `customErrorMsg` - Custom error message
 
 ## assertNotContain
 
@@ -120,12 +129,14 @@ Asserts that the target does not contain the given value.
 I.assertNotContain('foo', 'bar');
 I.assertNotContain([1, 2, 3], 4);
 I.assertNotContain({a: 3, b: 4}, {a: 1, b: 2});
+I.assertNotContain('foo', 'bar', 'Target value contains given value');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValueToNotContain` - expected value to not contain
+-   `customErrorMsg` - Custom error message
 
 ## assertStartsWith
 
@@ -135,12 +146,14 @@ https://www.npmjs.com/package/chai-string#startswithstartwith
 
 ```js
 I.assertStartsWith('foobar', 'foo');
+I.assertStartsWith('foobar', 'foo', 'Target value does not start with given value');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValueToStartWith` - expected value to start with
+-   `customErrorMsg` - Custom error message
 
 ## assertNotStartsWith
 
@@ -151,12 +164,14 @@ Asserts that the target does not start with the given value.
 
 ```js
 I.assertNotStartsWith('foobar', 'bar');
+I.assertNotStartsWith('foobar', 'bar', 'Target value starts with given value');
 ```
 
 **Parameters**
 
 -   `actualValue` - actual value
 -   `expectedValueToNotStartWith` - expected value to not start with
+-   `customErrorMsg` - Custom error message
 
 ## assertJsonSchema
 
@@ -198,12 +213,14 @@ const fruitSchema = {
   }
 };
 I.assertJsonSchema(goodApple, fruitSchema);
+I.assertJsonSchema(goodApple, fruitSchema, 'Target json data does not conform to json schema');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `jsonSchema` - json schema
+-   `customErrorMsg` - Custom error message
 
 ## assertJsonSchemaUsingAJV
 
@@ -246,12 +263,16 @@ const fruitSchema = {
   }
 };
 I.assertJsonSchemaUsingAJV(goodApple, fruitSchema);
+I.assertJsonSchema(goodApple, fruitSchema, 'Target json data does not conform to json schema', {});
+I.assertJsonSchema(goodApple, fruitSchema, '', { jsonPointers: true });
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `jsonSchema` - json schema
+-   `customErrorMsg` - Custom error message
+-   `ajvOptions` - [Custom AJV Options](https://www.npmjs.com/package/chai-json-schema-ajv#custom-options)
 
 ## assertHasProperty
 
@@ -261,12 +282,14 @@ https://www.chaijs.com/api/bdd/#method_property
 
 ```js
 I.assertHasProperty({a: 1}, 'a');
+I.assertHasProperty({a: 1}, 'a', 'Target data does not have the given property');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `propertyName` - expected property name
+-   `customErrorMsg` - Custom error message
 
 ## assertHasAProperty
 
@@ -276,12 +299,14 @@ https://www.chaijs.com/api/bdd/#method_a
 
 ```js
 I.assertHasAProperty({b: 2}, 'b');
+I.assertHasAProperty({b: 2}, 'b', 'Target data does not have a child property with the given key');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `propertyName` - expected property name
+-   `customErrorMsg` - Custom error message
 
 ## assertToBeA
 
@@ -295,12 +320,14 @@ I.assertToBeA(null, 'null');
 I.assertToBeA(Promise.resolve(), 'promise');
 I.assertToBeA(new Float32Array, 'float32array');
 I.assertToBeA(Symbol(), 'symbol');
+I.assertToBeA('foo', 'string', 'Target data does not match the type');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `type` - expected data type
+-   `customErrorMsg` - Custom error message
 
 ## assertToBeAn
 
@@ -313,12 +340,14 @@ I.assertToBeAn([1, 2, 3], 'array');
 I.assertToBeAn({a: 1}, 'object');
 I.assertToBeAn(undefined, 'undefined');
 I.assertToBeAn(new Error, 'error');
+I.assertToBeAn([1, 2, 3], 'array', 'Target data does not match the type');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `type` - expected data type
+-   `customErrorMsg` - Custom error message
 
 ## assertMatchRegex
 
@@ -328,12 +357,14 @@ https://www.chaijs.com/api/bdd/#method_match
 
 ```js
 I.assertMatchRegex('foobar', /^foo/);
+I.assertMatchRegex('foobar', /^foo/, 'Target data does not match the given regex');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `regex` - regular expression to match target data
+-   `customErrorMsg` - Custom error message
 
 ## assertLengthOf
 
@@ -346,12 +377,14 @@ I.assertLengthOf([1, 2, 3], 3);
 I.assertLengthOf('foo', 3);
 I.assertLengthOf(new Set([1, 2, 3]), 3);
 I.assertLengthOf(new Map([['a', 1], ['b', 2], ['c', 3]]), 3);
+I.assertLengthOf('foo', 3, 'Target data does not match the length');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
 -   `length` - expected target data length
+-   `customErrorMsg` - Custom error message
 
 ## assertEmpty
 
@@ -365,11 +398,13 @@ I.assertEmpty([]);
 I.assertEmpty({});
 I.assertEmpty(new Set());
 I.assertEmpty(new Map());
+I.assertEmpty('', 'Target data is not empty');
 ```
 
 **Parameters**
 
 -   `targetData` - target json data
+-   `customErrorMsg` - Custom error message
 
 ## assertTrue
 
@@ -379,11 +414,13 @@ https://www.chaijs.com/api/bdd/#method_true
 
 ```js
 I.assertTrue(true);
+I.assertTrue(true, 'Target data is not true');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
+-   `customErrorMsg` - Custom error message
 
 ## assertFalse
 
@@ -393,11 +430,13 @@ https://www.chaijs.com/api/bdd/#method_false
 
 ```js
 I.assertFalse(false);
+I.assertTrue(false, 'Target data is not false');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
+-   `customErrorMsg` - Custom error message
 
 ## assertAbove
 
@@ -407,12 +446,14 @@ https://www.chaijs.com/api/bdd/#method_above
 
 ```js
 I.assertAbove(2, 1);
+I.assertAbove(2, 1, 'Target data not above the given value');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
 -   `aboveThan` - number | Date
+-   `customErrorMsg` - Custom error message
 
 ## assertBelow
 
@@ -422,12 +463,14 @@ https://www.chaijs.com/api/bdd/#method_below
 
 ```js
 I.assertBelow(1, 2);
+I.assertAbove(1, 2, 'Target data not below the given value');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
 -   `belowThan` - number | Date
+-   `customErrorMsg` - Custom error message
 
 ## assertLengthOf
 
@@ -440,12 +483,14 @@ I.assertLengthOf([1, 2, 3], 3);
 I.assertLengthOf('foo', 3);
 I.assertLengthOf(new Set([1, 2, 3]), 3);
 I.assertLengthOf(new Map([['a', 1], ['b', 2], ['c', 3]]), 3);
+I.assertLengthOf('foo', 3, 'Target length or size does not match the given number');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
 -   `expectedLength` - expected length
+-   `customErrorMsg` - Custom error message
 
 ## assertLengthAboveThan
 
@@ -459,12 +504,14 @@ I.assertLengthAboveThan([1, 2, 3], 2);
 I.assertLengthAboveThan('foo', 2);
 I.assertLengthAboveThan(new Set([1, 2, 3]), 2);
 I.assertLengthAboveThan(new Map([['a', 1], ['b', 2], ['c', 3]]), 2);
+I.assertLengthAboveThan('foo', 2, 'Target length or size not above than given number');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
 -   `lengthAboveThan` - length above than
+-   `customErrorMsg` - Custom error message
 
 ## assertLengthBelowThan
 
@@ -478,9 +525,11 @@ I.assertLengthBelowThan([1, 2, 3], 4);
 I.assertLengthBelowThan('foo', 4);
 I.assertLengthBelowThan(new Set([1, 2, 3]), 4);
 I.assertLengthBelowThan(new Map([['a', 1], ['b', 2], ['c', 3]]), 4);
+I.assertLengthAboveThan('foo', 4, 'Target length or size not below than given number');
 ```
 
 **Parameters**
 
 -   `targetData` - target data
 -   `lengthBelowThan` - length below than
+-   `customErrorMsg` - Custom error message

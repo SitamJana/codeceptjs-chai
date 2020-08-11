@@ -142,11 +142,18 @@ class chaiWrapper extends Helper{
    * @param {*} targetData
    * @param {*} jsonSchema
    * @param {*} customErrorMsg
+   * @param {*} ajvOptions Pass AJV options
    * @returns {*}
    */
-  assertJsonSchemaUsingAJV( targetData, jsonSchema, customErrorMsg = '' ){
+  assertJsonSchemaUsingAJV( 
+    targetData,
+    jsonSchema,
+    customErrorMsg = '',
+    ajvOptions = { allErrors: true, jsonPointers: true } ){
 
-    chai.use( require( 'chai-json-schema-ajv' ) );
+    chai.use(
+      require( 'chai-json-schema-ajv' ).create( ajvOptions )
+    );
     return expect( targetData, customErrorMsg ).to.be.jsonSchema( jsonSchema );
 
   }

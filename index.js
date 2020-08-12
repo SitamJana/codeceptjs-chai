@@ -123,6 +123,38 @@ class chaiWrapper extends Helper{
 
   }
 
+
+  /**
+   * https://www.npmjs.com/package/chai-string#endswithendwith
+   * @param {*} actualValue
+   * @param {*} expectedValueToEndWith
+   * @param {*} customErrorMsg
+   * @returns {*}
+   */
+  assertEndsWith( actualValue, expectedValueToEndWith, customErrorMsg = '' ){
+
+    return expect( actualValue, customErrorMsg ).to.endsWith(
+      expectedValueToEndWith,
+    );
+
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_not
+   * https://www.npmjs.com/package/chai-string#endswithendwith
+   * @param {*} actualValue
+   * @param {*} expectedValueToNotEndWith
+   * @param {*} customErrorMsg
+   * @returns {*}
+   */
+  assertNotEndsWith( actualValue, expectedValueToNotEndWith, customErrorMsg = '' ){
+
+    return expect( actualValue, customErrorMsg ).not.to.endsWith(
+      expectedValueToNotEndWith,
+    );
+
+  }
+
   /**
    * https://www.npmjs.com/package/chai-json-schema#jsonschemavalue-schema
    * @param {*} targetData

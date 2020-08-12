@@ -173,6 +173,41 @@ I.assertNotStartsWith('foobar', 'bar', 'Target value starts with given value');
 -   `expectedValueToNotStartWith` - expected value to not start with
 -   `customErrorMsg` - Custom error message
 
+## assertEndsWith
+
+Asserts that the target ends with the given value.
+
+https://www.npmjs.com/package/chai-string#endswithendwith
+
+```js
+I.assertEndsWith('foobar', 'bar');
+I.assertEndsWith('foobar', 'bar', 'Target value does not ends with given value');
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValueToEndWith` - expected value to end with
+-   `customErrorMsg` - Custom error message
+
+## assertNotEndsWith
+
+Asserts that the target does not end with the given value.
+
+- https://www.chaijs.com/api/bdd/#method_not
+- https://www.npmjs.com/package/chai-string#endswithendwith
+
+```js
+I.assertNotEndsWith('foobar', 'bar');
+I.assertNotEndsWith('foobar', 'bar', 'Target value ends with given value');
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValueToNotEndWith` - expected value to not end with
+-   `customErrorMsg` - Custom error message
+
 ## assertJsonSchema
 
 Validate that the given json data conforms to the specified JSON Schema. Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.

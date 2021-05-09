@@ -358,6 +358,19 @@ class chaiWrapper extends Helper{
 
   }
 
+  /**
+   * https://www.npmjs.com/package/chai-string#equalignorecase
+   * @param {*} actualValue 
+   * @param {*} expectedValue 
+   * @param {*} customErrorMsg 
+   * @returns 
+   */
+  assertEqualIgnoreCase( actualValue, expectedValue, customErrorMsg = '' ){
+
+    return expect( actualValue, customErrorMsg ).to.equalIgnoreCase( expectedValue );
+
+  }
+
 }
 
 module.exports = chaiWrapper;

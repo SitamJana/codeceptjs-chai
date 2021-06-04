@@ -568,3 +568,51 @@ I.assertLengthAboveThan('foo', 4, 'Target length or size not below than given nu
 -   `targetData` - target data
 -   `lengthBelowThan` - length below than
 -   `customErrorMsg` - Custom error message
+
+## assertEqualsIgnoreCase
+
+Asserts two strings represent the same value when ignoring case
+
+https://www.chaijs.com/plugins/chai-string/
+
+```js
+I.assertEqualIgnoreCase('FOO','foo')
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
+
+## assertDeepMembers
+
+Asserts members of two arrays are deeply equal
+
+https://www.chaijs.com/api/bdd/#method_deep
+
+```js
+I.assertDeepMembers([{a: 1}],[{a: 1}])
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
+
+## assertDeepMembers
+
+Asserts an array deep includes members from another array
+
+https://www.chaijs.com/api/bdd/#method_deep
+
+```js
+I.assertDeepIncludeMembers([{a: 1},{b: 2}],[{a: 1}])
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message

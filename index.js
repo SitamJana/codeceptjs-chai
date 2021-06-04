@@ -371,6 +371,34 @@ class chaiWrapper extends Helper{
 
   }
 
+  /**
+   * Asserts members of two arrays are deeply equal
+   * https://www.chaijs.com/api/bdd/#method_deep
+   * @param {*} actualValue 
+   * @param {*} expectedValue 
+   * @param {*} customErrorMsg 
+   * @returns 
+   */
+  assertDeepMembers( actualValue, expectedValue, customErrorMsg = '' ){
+
+    return expect( actualValue, customErrorMsg ).to.have.deep.members( expectedValue );
+
+  }
+
+  /**
+   * Asserts an array deep includes members from another array
+   * https://www.chaijs.com/api/bdd/#method_deep
+   * @param {*} actualValue 
+   * @param {*} expectedValue 
+   * @param {*} customErrorMsg 
+   * @returns 
+   */
+  assertDeepIncludeMembers( actualValue, expectedValue, customErrorMsg = '' ){
+
+    return expect( actualValue, customErrorMsg ).to.deep.include.members( expectedValue );
+
+  }
+
 }
 
 module.exports = chaiWrapper;

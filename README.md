@@ -601,7 +601,7 @@ I.assertDeepMembers([{a: 1}],[{a: 1}])
 -   `expectedValue` - expected value
 -   `customErrorMsg` - Custom error message
 
-## assertDeepMembers
+## assertDeepIncludeMembers
 
 Asserts an array deep includes members from another array
 

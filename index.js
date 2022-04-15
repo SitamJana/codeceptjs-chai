@@ -3,8 +3,9 @@ const chai = require( 'chai' );
 
 const { expect } = chai;
 
-// Use chai custom assetion library
+// Use chai custom assertion library
 chai.use( require( 'chai-string' ) );
+chai.use( require( 'chai-exclude' ) );
 
 /**
  * This wrapper take methods from default assert library to give access to use it from I object.
@@ -177,7 +178,7 @@ class chaiWrapper extends Helper{
    * @param {*} ajvOptions Pass AJV options
    * @returns {*}
    */
-  assertJsonSchemaUsingAJV( 
+  assertJsonSchemaUsingAJV(
     targetData,
     jsonSchema,
     customErrorMsg = '',
@@ -360,10 +361,10 @@ class chaiWrapper extends Helper{
 
   /**
    * https://www.npmjs.com/package/chai-string#equalignorecase
-   * @param {*} actualValue 
-   * @param {*} expectedValue 
-   * @param {*} customErrorMsg 
-   * @returns 
+   * @param {*} actualValue
+   * @param {*} expectedValue
+   * @param {*} customErrorMsg
+   * @returns
    */
   assertEqualIgnoreCase( actualValue, expectedValue, customErrorMsg = '' ){
 
@@ -374,10 +375,10 @@ class chaiWrapper extends Helper{
   /**
    * Asserts members of two arrays are deeply equal
    * https://www.chaijs.com/api/bdd/#method_deep
-   * @param {*} actualValue 
-   * @param {*} expectedValue 
-   * @param {*} customErrorMsg 
-   * @returns 
+   * @param {*} actualValue
+   * @param {*} expectedValue
+   * @param {*} customErrorMsg
+   * @returns
    */
   assertDeepMembers( actualValue, expectedValue, customErrorMsg = '' ){
 
@@ -388,14 +389,30 @@ class chaiWrapper extends Helper{
   /**
    * Asserts an array deep includes members from another array
    * https://www.chaijs.com/api/bdd/#method_deep
-   * @param {*} actualValue 
-   * @param {*} expectedValue 
-   * @param {*} customErrorMsg 
-   * @returns 
+   * @param {*} actualValue
+   * @param {*} expectedValue
+   * @param {*} customErrorMsg
+   * @returns
    */
   assertDeepIncludeMembers( actualValue, expectedValue, customErrorMsg = '' ){
 
     return expect( actualValue, customErrorMsg ).to.deep.include.members( expectedValue );
+
+  }
+
+  /**
+   * https://www.chaijs.com/api/bdd/#method_deep
+   * https://www.chaijs.com/plugins/chai-exclude/
+   * https://www.chaijs.com/api/bdd/#method_equal
+   * @param {*} actualValue
+   * @param {*} expectedValue
+   * @param {*} fieldsToExclude
+   * @param {*} customErrorMsg
+   * @returns {*}
+   */
+  assertDeepEqualExcluding( actualValue, expectedValue, fieldsToExclude, customErrorMsg = '' ){
+
+    return expect( actualValue, customErrorMsg ).excludingEvery( fieldsToExclude ).to.deep.equal( expectedValue );
 
   }
 

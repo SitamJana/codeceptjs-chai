@@ -613,6 +613,24 @@ I.assertDeepIncludeMembers([{a: 1},{b: 2}],[{a: 1}])
 
 **Parameters**
 
--   `actualValue` - actual value
--   `expectedValue` - expected value
--   `customErrorMsg` - Custom error message
+- `actualValue` - actual value
+- `expectedValue` - expected value
+- `customErrorMsg` - Custom error message
+
+
+## assertDeepIncludeMembers
+
+Asserts members of two JSON objects are deeply equal excluding some properties
+
+https://www.chaijs.com/plugins/chai-exclude/
+
+```js
+I.assertDeepEqualExcluding([{a: 1},{b: 2}],'b',[{a: 1}])
+```
+
+**Parameters**
+
+- `actualValue` - actual value
+- `expectedValue` - expected value
+- `fieldsToExclude` - Fields to exclude from validation
+- `customErrorMsg` - Custom error message

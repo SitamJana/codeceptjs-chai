@@ -238,4 +238,15 @@ declare class chaiWrapper {
      * @returns
      */
     assertDeepIncludeMembers(actualValue: any, expectedValue: any, customErrorMsg?: any): any;
+    /**
+     * Asserts a JSON deep compare excluding some properties of the JSON object
+     * https://www.npmjs.com/package/chai-exclude
+     * https://github.com/mesaugat/chai-exclude/blob/add7356daec42291c91e4b2f1598ed1b3782e5a6/index.d.ts#L32     *
+     * @param {*} actualValue
+     * @param {*} expectedValue
+     * @param {*} fieldsToExclude
+     * @param {*} customErrorMsg
+     * @returns {*}
+     */
+    assertDeepEqualExcluding(actualValue: any, expectedValue: any, fieldsToExclude:any, customErrorMsg?: any): any;
 }

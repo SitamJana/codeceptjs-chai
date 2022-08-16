@@ -15,11 +15,11 @@ Example:
 
 ```json
 {
-   "helpers": {
-     "ChaiWrapper" : {
-       "require": "codeceptjs-chai"
-     }
-   }
+    "helpers": {
+        "ChaiWrapper": {
+            "require": "codeceptjs-chai"
+        }
+    }
 }
 ```
 
@@ -31,8 +31,8 @@ https://www.chaijs.com/api/bdd/#method_equal
 
 ```js
 I.assertEqual(1, 1);
-I.assertEqual('foo', 'foo');
-I.assertEqual('foo', 'foo', 'Both the values are not equal');
+I.assertEqual("foo", "foo");
+I.assertEqual("foo", "foo", "Both the values are not equal");
 ```
 
 **Parameters**
@@ -45,13 +45,13 @@ I.assertEqual('foo', 'foo', 'Both the values are not equal');
 
 Asserts that the target is not equal to the given value.
 
-- https://www.chaijs.com/api/bdd/#method_not
-- https://www.chaijs.com/api/bdd/#method_equal
+-   https://www.chaijs.com/api/bdd/#method_not
+-   https://www.chaijs.com/api/bdd/#method_equal
 
 ```js
 I.assertNotEqual(2, 1);
-I.assertNotEqual('foobar', 'foo');
-I.assertNotEqual('foobar', 'foo', 'Both the values are equal');
+I.assertNotEqual("foobar", "foo");
+I.assertNotEqual("foobar", "foo", "Both the values are equal");
 ```
 
 **Parameters**
@@ -64,11 +64,11 @@ I.assertNotEqual('foobar', 'foo', 'Both the values are equal');
 
 Asserts that the target is an object whose properties are strictly equal (===) as the given value's.
 
-- https://www.chaijs.com/api/bdd/#method_deep
-- https://www.chaijs.com/api/bdd/#method_equal
+-   https://www.chaijs.com/api/bdd/#method_deep
+-   https://www.chaijs.com/api/bdd/#method_equal
 
 ```js
-I.assertDeepEqual({a: 1}, {a: 1});
+I.assertDeepEqual({ a: 1 }, { a: 1 });
 ```
 
 **Parameters**
@@ -81,14 +81,18 @@ I.assertDeepEqual({a: 1}, {a: 1});
 
 Asserts that the target is not an object whose properties are strictly equal (===) as the given value's.
 
-- https://www.chaijs.com/api/bdd/#method_not
-- https://www.chaijs.com/api/bdd/#method_deep
-- https://www.chaijs.com/api/bdd/#method_equal
+-   https://www.chaijs.com/api/bdd/#method_not
+-   https://www.chaijs.com/api/bdd/#method_deep
+-   https://www.chaijs.com/api/bdd/#method_equal
 
 ```js
-I.assertNotDeepEqual({a: 1}, {a: 2});
-I.assertNotDeepEqual({a: 1}, {b: 1, c: 2});
-I.assertNotDeepEqual({a: 1}, {b: 1, c: 2}, 'Both the values are deeply equal');
+I.assertNotDeepEqual({ a: 1 }, { a: 2 });
+I.assertNotDeepEqual({ a: 1 }, { b: 1, c: 2 });
+I.assertNotDeepEqual(
+    { a: 1 },
+    { b: 1, c: 2 },
+    "Both the values are deeply equal"
+);
 ```
 
 **Parameters**
@@ -104,12 +108,18 @@ Asserts that the target contains the given value.
 https://www.chaijs.com/api/bdd/#method_include
 
 ```js
-I.assertContain('foobar', 'foo');
+I.assertContain("foobar", "foo");
 I.assertContain([1, 2, 3], 2);
-I.assertContain({a: 1, b: 2, c: 3}, {a: 1, b: 2});
+I.assertContain({ a: 1, b: 2, c: 3 }, { a: 1, b: 2 });
 I.assertContain(new Set([1, 2]), 2);
-I.assertContain(new Map([['a', 1], ['b', 2]]), 2);
-I.assertContain('foobar', 'foo', 'Target value does not contain given value');
+I.assertContain(
+    new Map([
+        ["a", 1],
+        ["b", 2],
+    ]),
+    2
+);
+I.assertContain("foobar", "foo", "Target value does not contain given value");
 ```
 
 **Parameters**
@@ -122,14 +132,14 @@ I.assertContain('foobar', 'foo', 'Target value does not contain given value');
 
 Asserts that the target does not contain the given value.
 
-- https://www.chaijs.com/api/bdd/#method_not
-- https://www.chaijs.com/api/bdd/#method_include
+-   https://www.chaijs.com/api/bdd/#method_not
+-   https://www.chaijs.com/api/bdd/#method_include
 
 ```js
-I.assertNotContain('foo', 'bar');
+I.assertNotContain("foo", "bar");
 I.assertNotContain([1, 2, 3], 4);
-I.assertNotContain({a: 3, b: 4}, {a: 1, b: 2});
-I.assertNotContain('foo', 'bar', 'Target value contains given value');
+I.assertNotContain({ a: 3, b: 4 }, { a: 1, b: 2 });
+I.assertNotContain("foo", "bar", "Target value contains given value");
 ```
 
 **Parameters**
@@ -145,8 +155,12 @@ Asserts that the target starts with the given value.
 https://www.npmjs.com/package/chai-string#startswithstartwith
 
 ```js
-I.assertStartsWith('foobar', 'foo');
-I.assertStartsWith('foobar', 'foo', 'Target value does not start with given value');
+I.assertStartsWith("foobar", "foo");
+I.assertStartsWith(
+    "foobar",
+    "foo",
+    "Target value does not start with given value"
+);
 ```
 
 **Parameters**
@@ -159,12 +173,12 @@ I.assertStartsWith('foobar', 'foo', 'Target value does not start with given valu
 
 Asserts that the target does not start with the given value.
 
-- https://www.chaijs.com/api/bdd/#method_not
-- https://www.npmjs.com/package/chai-string#startswithstartwith
+-   https://www.chaijs.com/api/bdd/#method_not
+-   https://www.npmjs.com/package/chai-string#startswithstartwith
 
 ```js
-I.assertNotStartsWith('foobar', 'bar');
-I.assertNotStartsWith('foobar', 'bar', 'Target value starts with given value');
+I.assertNotStartsWith("foobar", "bar");
+I.assertNotStartsWith("foobar", "bar", "Target value starts with given value");
 ```
 
 **Parameters**
@@ -180,8 +194,12 @@ Asserts that the target ends with the given value.
 https://www.npmjs.com/package/chai-string#endswithendwith
 
 ```js
-I.assertEndsWith('foobar', 'bar');
-I.assertEndsWith('foobar', 'bar', 'Target value does not ends with given value');
+I.assertEndsWith("foobar", "bar");
+I.assertEndsWith(
+    "foobar",
+    "bar",
+    "Target value does not ends with given value"
+);
 ```
 
 **Parameters**
@@ -194,12 +212,12 @@ I.assertEndsWith('foobar', 'bar', 'Target value does not ends with given value')
 
 Asserts that the target does not end with the given value.
 
-- https://www.chaijs.com/api/bdd/#method_not
-- https://www.npmjs.com/package/chai-string#endswithendwith
+-   https://www.chaijs.com/api/bdd/#method_not
+-   https://www.npmjs.com/package/chai-string#endswithendwith
 
 ```js
-I.assertNotEndsWith('foobar', 'bar');
-I.assertNotEndsWith('foobar', 'bar', 'Target value ends with given value');
+I.assertNotEndsWith("foobar", "bar");
+I.assertNotEndsWith("foobar", "bar", "Target value ends with given value");
 ```
 
 **Parameters**
@@ -216,39 +234,43 @@ https://www.npmjs.com/package/chai-json-schema#jsonschemavalue-schema
 
 ```js
 const goodApple = {
-  skin: 'thin',
-  colors: ['red', 'green', 'yellow'],
-  taste: 10
+    skin: "thin",
+    colors: ["red", "green", "yellow"],
+    taste: 10,
 };
 const badApple = {
-  colors: ['brown'],
-  taste: 0,
-  worms: 2
+    colors: ["brown"],
+    taste: 0,
+    worms: 2,
 };
 const fruitSchema = {
-  title: 'fresh fruit schema v1',
-  type: 'object',
-  required: ['skin', 'colors', 'taste'],
-  properties: {
-    colors: {
-      type: 'array',
-      minItems: 1,
-      uniqueItems: true,
-      items: {
-        type: 'string'
-      }
+    title: "fresh fruit schema v1",
+    type: "object",
+    required: ["skin", "colors", "taste"],
+    properties: {
+        colors: {
+            type: "array",
+            minItems: 1,
+            uniqueItems: true,
+            items: {
+                type: "string",
+            },
+        },
+        skin: {
+            type: "string",
+        },
+        taste: {
+            type: "number",
+            minimum: 5,
+        },
     },
-    skin: {
-      type: 'string'
-    },
-    taste: {
-      type: 'number',
-      minimum: 5
-    }
-  }
 };
 I.assertJsonSchema(goodApple, fruitSchema);
-I.assertJsonSchema(goodApple, fruitSchema, 'Target json data does not conform to json schema');
+I.assertJsonSchema(
+    goodApple,
+    fruitSchema,
+    "Target json data does not conform to json schema"
+);
 ```
 
 **Parameters**
@@ -261,45 +283,50 @@ I.assertJsonSchema(goodApple, fruitSchema, 'Target json data does not conform to
 
 Validate that the given json data conforms to the specified JSON Schema using [chai-json-schema-ajv](https://www.npmjs.com/package/chai-json-schema-ajv). Both the value and schema would likely be JSON loaded from an external datasource but could also be literals or object instances.
 
-- https://www.chaijs.com/plugins/chai-json-schema-ajv/
-- https://www.npmjs.com/package/chai-json-schema-ajv
+-   https://www.chaijs.com/plugins/chai-json-schema-ajv/
+-   https://www.npmjs.com/package/chai-json-schema-ajv
 
 ```js
 const goodApple = {
-  skin: 'thin',
-  colors: ['red', 'green', 'yellow'],
-  taste: 10
+    skin: "thin",
+    colors: ["red", "green", "yellow"],
+    taste: 10,
 };
 const badApple = {
-  colors: ['brown'],
-  taste: 0,
-  worms: 2
+    colors: ["brown"],
+    taste: 0,
+    worms: 2,
 };
 const fruitSchema = {
-  title: 'fresh fruit schema v1',
-  type: 'object',
-  required: ['skin', 'colors', 'taste'],
-  properties: {
-    colors: {
-      type: 'array',
-      minItems: 1,
-      uniqueItems: true,
-      items: {
-        type: 'string'
-      }
+    title: "fresh fruit schema v1",
+    type: "object",
+    required: ["skin", "colors", "taste"],
+    properties: {
+        colors: {
+            type: "array",
+            minItems: 1,
+            uniqueItems: true,
+            items: {
+                type: "string",
+            },
+        },
+        skin: {
+            type: "string",
+        },
+        taste: {
+            type: "number",
+            minimum: 5,
+        },
     },
-    skin: {
-      type: 'string'
-    },
-    taste: {
-      type: 'number',
-      minimum: 5
-    }
-  }
 };
 I.assertJsonSchemaUsingAJV(goodApple, fruitSchema);
-I.assertJsonSchema(goodApple, fruitSchema, 'Target json data does not conform to json schema', {});
-I.assertJsonSchema(goodApple, fruitSchema, '', { jsonPointers: true });
+I.assertJsonSchema(
+    goodApple,
+    fruitSchema,
+    "Target json data does not conform to json schema",
+    {}
+);
+I.assertJsonSchema(goodApple, fruitSchema, "", { jsonPointers: true });
 ```
 
 **Parameters**
@@ -316,8 +343,12 @@ Asserts that the target has a property with the given key.
 https://www.chaijs.com/api/bdd/#method_property
 
 ```js
-I.assertHasProperty({a: 1}, 'a');
-I.assertHasProperty({a: 1}, 'a', 'Target data does not have the given property');
+I.assertHasProperty({ a: 1 }, "a");
+I.assertHasProperty(
+    { a: 1 },
+    "a",
+    "Target data does not have the given property"
+);
 ```
 
 **Parameters**
@@ -333,8 +364,12 @@ Asserts that the target has a child property with the given key.
 https://www.chaijs.com/api/bdd/#method_a
 
 ```js
-I.assertHasAProperty({b: 2}, 'b');
-I.assertHasAProperty({b: 2}, 'b', 'Target data does not have a child property with the given key');
+I.assertHasAProperty({ b: 2 }, "b");
+I.assertHasAProperty(
+    { b: 2 },
+    "b",
+    "Target data does not have a child property with the given key"
+);
 ```
 
 **Parameters**
@@ -350,12 +385,12 @@ Asserts that the target’s type is equal to the given string type. Types are ca
 https://www.chaijs.com/api/bdd/#method_a
 
 ```js
-I.assertToBeA('foo', 'string');
-I.assertToBeA(null, 'null');
-I.assertToBeA(Promise.resolve(), 'promise');
-I.assertToBeA(new Float32Array, 'float32array');
-I.assertToBeA(Symbol(), 'symbol');
-I.assertToBeA('foo', 'string', 'Target data does not match the type');
+I.assertToBeA("foo", "string");
+I.assertToBeA(null, "null");
+I.assertToBeA(Promise.resolve(), "promise");
+I.assertToBeA(new Float32Array(), "float32array");
+I.assertToBeA(Symbol(), "symbol");
+I.assertToBeA("foo", "string", "Target data does not match the type");
 ```
 
 **Parameters**
@@ -371,11 +406,11 @@ Asserts that the target’s type is equal to the given string type. Types are ca
 https://www.chaijs.com/api/bdd/#method_a
 
 ```js
-I.assertToBeAn([1, 2, 3], 'array');
-I.assertToBeAn({a: 1}, 'object');
-I.assertToBeAn(undefined, 'undefined');
-I.assertToBeAn(new Error, 'error');
-I.assertToBeAn([1, 2, 3], 'array', 'Target data does not match the type');
+I.assertToBeAn([1, 2, 3], "array");
+I.assertToBeAn({ a: 1 }, "object");
+I.assertToBeAn(undefined, "undefined");
+I.assertToBeAn(new Error(), "error");
+I.assertToBeAn([1, 2, 3], "array", "Target data does not match the type");
 ```
 
 **Parameters**
@@ -391,8 +426,12 @@ Asserts that the target matches the given regular expression.
 https://www.chaijs.com/api/bdd/#method_match
 
 ```js
-I.assertMatchRegex('foobar', /^foo/);
-I.assertMatchRegex('foobar', /^foo/, 'Target data does not match the given regex');
+I.assertMatchRegex("foobar", /^foo/);
+I.assertMatchRegex(
+    "foobar",
+    /^foo/,
+    "Target data does not match the given regex"
+);
 ```
 
 **Parameters**
@@ -409,10 +448,17 @@ https://www.chaijs.com/api/bdd/#method_lengthof
 
 ```js
 I.assertLengthOf([1, 2, 3], 3);
-I.assertLengthOf('foo', 3);
+I.assertLengthOf("foo", 3);
 I.assertLengthOf(new Set([1, 2, 3]), 3);
-I.assertLengthOf(new Map([['a', 1], ['b', 2], ['c', 3]]), 3);
-I.assertLengthOf('foo', 3, 'Target data does not match the length');
+I.assertLengthOf(
+    new Map([
+        ["a", 1],
+        ["b", 2],
+        ["c", 3],
+    ]),
+    3
+);
+I.assertLengthOf("foo", 3, "Target data does not match the length");
 ```
 
 **Parameters**
@@ -428,12 +474,12 @@ When the target is a string or array, .empty asserts that the target’s length 
 https://www.chaijs.com/api/bdd/#method_empty
 
 ```js
-I.assertEmpty('');
+I.assertEmpty("");
 I.assertEmpty([]);
 I.assertEmpty({});
 I.assertEmpty(new Set());
 I.assertEmpty(new Map());
-I.assertEmpty('', 'Target data is not empty');
+I.assertEmpty("", "Target data is not empty");
 ```
 
 **Parameters**
@@ -449,7 +495,7 @@ https://www.chaijs.com/api/bdd/#method_true
 
 ```js
 I.assertTrue(true);
-I.assertTrue(true, 'Target data is not true');
+I.assertTrue(true, "Target data is not true");
 ```
 
 **Parameters**
@@ -465,7 +511,7 @@ https://www.chaijs.com/api/bdd/#method_false
 
 ```js
 I.assertFalse(false);
-I.assertTrue(false, 'Target data is not false');
+I.assertTrue(false, "Target data is not false");
 ```
 
 **Parameters**
@@ -481,7 +527,7 @@ https://www.chaijs.com/api/bdd/#method_above
 
 ```js
 I.assertAbove(2, 1);
-I.assertAbove(2, 1, 'Target data not above the given value');
+I.assertAbove(2, 1, "Target data not above the given value");
 ```
 
 **Parameters**
@@ -498,7 +544,7 @@ https://www.chaijs.com/api/bdd/#method_below
 
 ```js
 I.assertBelow(1, 2);
-I.assertAbove(1, 2, 'Target data not below the given value');
+I.assertAbove(1, 2, "Target data not below the given value");
 ```
 
 **Parameters**
@@ -515,10 +561,21 @@ https://www.chaijs.com/api/bdd/#method_lengthof
 
 ```js
 I.assertLengthOf([1, 2, 3], 3);
-I.assertLengthOf('foo', 3);
+I.assertLengthOf("foo", 3);
 I.assertLengthOf(new Set([1, 2, 3]), 3);
-I.assertLengthOf(new Map([['a', 1], ['b', 2], ['c', 3]]), 3);
-I.assertLengthOf('foo', 3, 'Target length or size does not match the given number');
+I.assertLengthOf(
+    new Map([
+        ["a", 1],
+        ["b", 2],
+        ["c", 3],
+    ]),
+    3
+);
+I.assertLengthOf(
+    "foo",
+    3,
+    "Target length or size does not match the given number"
+);
 ```
 
 **Parameters**
@@ -536,10 +593,21 @@ https://www.chaijs.com/api/bdd/#method_above
 
 ```js
 I.assertLengthAboveThan([1, 2, 3], 2);
-I.assertLengthAboveThan('foo', 2);
+I.assertLengthAboveThan("foo", 2);
 I.assertLengthAboveThan(new Set([1, 2, 3]), 2);
-I.assertLengthAboveThan(new Map([['a', 1], ['b', 2], ['c', 3]]), 2);
-I.assertLengthAboveThan('foo', 2, 'Target length or size not above than given number');
+I.assertLengthAboveThan(
+    new Map([
+        ["a", 1],
+        ["b", 2],
+        ["c", 3],
+    ]),
+    2
+);
+I.assertLengthAboveThan(
+    "foo",
+    2,
+    "Target length or size not above than given number"
+);
 ```
 
 **Parameters**
@@ -557,10 +625,21 @@ https://www.chaijs.com/api/bdd/#method_below
 
 ```js
 I.assertLengthBelowThan([1, 2, 3], 4);
-I.assertLengthBelowThan('foo', 4);
+I.assertLengthBelowThan("foo", 4);
 I.assertLengthBelowThan(new Set([1, 2, 3]), 4);
-I.assertLengthBelowThan(new Map([['a', 1], ['b', 2], ['c', 3]]), 4);
-I.assertLengthAboveThan('foo', 4, 'Target length or size not below than given number');
+I.assertLengthBelowThan(
+    new Map([
+        ["a", 1],
+        ["b", 2],
+        ["c", 3],
+    ]),
+    4
+);
+I.assertLengthAboveThan(
+    "foo",
+    4,
+    "Target length or size not below than given number"
+);
 ```
 
 **Parameters**
@@ -576,7 +655,7 @@ Asserts two strings represent the same value when ignoring case
 https://www.chaijs.com/plugins/chai-string/
 
 ```js
-I.assertEqualIgnoreCase('FOO','foo')
+I.assertEqualIgnoreCase("FOO", "foo");
 ```
 
 **Parameters**
@@ -592,7 +671,7 @@ Asserts members of two arrays are deeply equal
 https://www.chaijs.com/api/bdd/#method_deep
 
 ```js
-I.assertDeepMembers([{a: 1}],[{a: 1}])
+I.assertDeepMembers([{ a: 1 }], [{ a: 1 }]);
 ```
 
 **Parameters**
@@ -608,29 +687,44 @@ Asserts an array deep includes members from another array
 https://www.chaijs.com/api/bdd/#method_deep
 
 ```js
-I.assertDeepIncludeMembers([{a: 1},{b: 2}],[{a: 1}])
+I.assertDeepIncludeMembers([{ a: 1 }, { b: 2 }], [{ a: 1 }]);
 ```
 
 **Parameters**
 
-- `actualValue` - actual value
-- `expectedValue` - expected value
-- `customErrorMsg` - Custom error message
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+-   `customErrorMsg` - Custom error message
 
-
-## assertDeepIncludeMembers
+## assertDeepExcludeMembers
 
 Asserts members of two JSON objects are deeply equal excluding some properties
 
 https://www.chaijs.com/plugins/chai-exclude/
 
 ```js
-I.assertDeepEqualExcluding([{a: 1},{b: 2}],'b',[{a: 1}])
+I.assertDeepEqualExcluding([{ a: 1 }, { b: 2 }], "b", [{ a: 1 }]);
 ```
 
 **Parameters**
 
-- `actualValue` - actual value
-- `expectedValue` - expected value
-- `fieldsToExclude` - Fields to exclude from validation
-- `customErrorMsg` - Custom error message
+-   `actualValue` - actual value
+-   `expectedValue` - expected value
+-   `fieldsToExclude` - Fields to exclude from validation
+-   `customErrorMsg` - Custom error message
+
+## assertMatchesPattern
+
+Asserts a JSON object matches a provided pattern
+
+https://www.chaijs.com/plugins/chai-match-pattern/
+
+```js
+I.assertMatchesPattern({ a: 1, b: "abc" }, { a: 1, b: _.isString });
+```
+
+**Parameters**
+
+-   `actualValue` - actual value
+-   `expectedPattern` - pattern to match on
+-   `customErrorMsg` - Custom error message

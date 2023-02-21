@@ -249,4 +249,12 @@ declare class chaiWrapper {
      * @returns {*}
      */
     assertDeepEqualExcluding(actualValue: any, expectedValue: any, fieldsToExclude:any, customErrorMsg?: any): any;
+    /**
+     * Asserts a JSON object matches a provided pattern
+     * https://www.chaijs.com/plugins/chai-match-pattern/
+     * @param {*} actualValue 
+     * @param {*} expectedPattern 
+     * @param {*} customErrorMsg 
+     */
+    assertMatchesPattern(actualValue: any, expectedPattern: any, customErrorMsg?: any): any;
 }

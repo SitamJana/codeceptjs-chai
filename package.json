@@ -3,7 +3,7 @@
   "version": "2.3.3",
   "description": "CodeceptJS helper for chai library",
   "devDependencies": {
-    "codeceptjs": "^2.5.0",
+    "codeceptjs": "^3.4.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-varspacing": "^1.2.1",

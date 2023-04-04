@@ -1,6 +1,6 @@
 {
   "name": "codeceptjs-chai",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "CodeceptJS helper for chai library",
   "devDependencies": {
     "codeceptjs": "^3.4.1",

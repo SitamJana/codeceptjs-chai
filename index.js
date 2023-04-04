@@ -13,7 +13,7 @@ chai.use( require( 'chai-match-pattern' ) );
  * This wrapper allow us to print asserts as steps in output. Also we can expand this lib with different methods and
  * other assertion libraries.
  */
-class chaiWrapper extends Helper{
+class chaiWrapper {
 
   /**
    * https://www.chaijs.com/api/bdd/#method_equal
